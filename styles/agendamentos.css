@@ -1,0 +1,158 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #09090B;
+  font-family: 'Arial', sans-serif;
+  color: #a8a8a8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; /* Corrige o corte */
+  padding: 1rem;
+  overflow-x: hidden; /* Evita scroll horizontal */
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1200px;
+  width: 100%;
+  padding: 2rem; /* Adiciona espaço interno */
+  
+}
+
+.agendamento, .agenda {
+  background: #18181B;
+  padding: 2rem;
+  border-radius: 12px;
+  flex: 1;
+  min-width: 280px;
+  max-width: 500px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  color: #7F1B1B;
+  font-family: 'Segoe UI', sans-serif; /* Nova fonte */
+  font-weight: bold;
+  font-size: 1.8rem;
+  text-align: center; /* Centraliza o título */
+}
+
+label {
+  display: block;
+  margin: 1.5rem 0 0.8rem;
+  font-family: 'Segoe UI', sans-serif;
+  font-size: 1rem;
+}
+
+input[type="date"], input[type="text"] {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1.5rem;
+  background: #f4f4f5;
+  border: 1px solid #444;
+  border-radius: 6px;
+  color: #2a2828;
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: #7F1B1B;
+}
+
+.horarios h3 {
+  margin: 1.5rem 0 0.8rem;
+  color: #7F1B1B;
+  font-size: 1.2rem;
+  font-family: 'Segoe UI', sans-serif;
+  font-weight: bold;
+}
+
+.periodo {
+  margin-top: 2rem;
+}
+
+.periodo span {
+  display: block;
+  color: #7F1B1B;
+  margin-bottom: 0.8rem;
+  font-weight: bold;
+}
+
+.botoes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  margin-top: 0.5rem;
+}
+
+button {
+  padding: 0.8rem 1.2rem;
+  background: #333333;
+  color: #a19f9f;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 1rem;
+}
+
+button:hover {
+  background: #7F1B1B;
+  color: #a2a2a2;
+  transform: translateY(-2px);
+}
+
+button.selected {
+  background: #7F1B1B;
+  box-shadow: 0 4px 6px rgba(127, 27, 27, 0.5);
+}
+
+.agendar-btn {
+  width: 100%;
+  background: linear-gradient(145deg, #7F1B1B, #9E2A2A);
+  margin-top: 1.5rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  font-family: 'Segoe UI', sans-serif;
+  transition: 0.3s;
+}
+
+.agendar-btn:hover {
+  box-shadow: 0 6px 12px rgba(127, 27, 27, 0.5);
+}
+
+.agenda .data-selecionada input {
+  width: 100%;
+}
+
+.horario-lista {
+  margin-top: 2rem;
+}
+
+.horario-lista .periodo h3 {
+  display: flex;
+  justify-content: space-between;
+  color: #7F1B1B;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.periodo p {
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #333;
+  font-size: 1rem;
+}
+
+.periodo p:last-child {
+  border-bottom: none;
+}

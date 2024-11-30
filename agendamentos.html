@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Agendamento</title>
+    <link rel="stylesheet" href="styles/agendamentos.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="agendamento">
+        <h2>Agende um atendimento</h2>
+        <label for="data">Data</label>
+        <input type="date" id="data" />
+
+        <div class="horarios">
+          <h3>Horários</h3>
+          <div class="periodo">
+            <span>09h-12h</span>
+            <div class="botoes">
+              <button class="btn">09:00</button>
+              <button class="btn">10:00</button>
+              <button class="btn">11:00</button>
+            </div>
+          </div>
+          <div class="periodo">
+            <span>13h-18h</span>
+            <div class="botoes">
+              <button class="btn">13:00</button>
+              <button class="btn">14:00</button>
+              <button class="btn">15:00</button>
+              <button class="btn">16:00</button>
+              <button class="btn">17:00</button>
+            </div>
+          </div>
+          <div class="periodo">
+            <span>19h-21h</span>
+            <div class="botoes">
+              <button class="btn">19:00</button>
+              <button class="btn">20:00</button>
+              <button class="btn">21:00</button>
+            </div>
+          </div>
+        </div>
+
+        <label for="cliente">Cliente</label>
+        <input type="text" id="cliente" placeholder="Nome do cliente" />
+
+        <button class="agendar-btn">Agendar</button>
+      </div>
+
+      <div class="agenda">
+        <h2>Sua agenda</h2>
+        <div class="data-selecionada">
+          <label for="data-agenda">Data</label>
+          <input type="date" id="data-agenda" />
+        </div>
+        <div class="horario-lista">
+          <div class="periodo">
+            <h3>Manhã <span>09h-12h</span></h3>
+          </div>
+          <div class="periodo">
+            <h3>Tarde <span>13h-18h</span></h3>
+          </div>
+          <div class="periodo">
+            <h3>Noite <span>19h-21h</span></h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const buttons = document.querySelectorAll('.botoes button');
+        const agendarBtn = document.querySelector('.agendar-btn');
+        const clienteInput = document.getElementById('cliente');
+        const dataInput = document.getElementById('data');
+        const agendaLista = document.querySelector('.horario-lista');
+        const dataAgendaInput = document.getElementById('data-agenda');
+
+        let selectedHorario = null;
+        const agendamentos = {};
+
+        buttons.forEach(button => {
+          button.addEventListener('click', () => {
+            if (selectedHorario) {
+              selectedHorario.classList.remove('selected');
+            }
+            button.classList.add('selected');
+            selectedHorario = button;
+          });
+        });
+
+        const isDataValida = (dataSelecionada) => {
+          const hoje = new Date(); 
+          const data = new Date(dataSelecionada);
+
+          hoje.setHours(0, 0, 0, 0);
+          data.setHours(0, 0, 0, 0);
+
+          return data >= hoje;
+        };
+
+        const atualizarAgenda = (dataSelecionada) => {
+          agendaLista.querySelectorAll('.periodo').forEach(periodo => {
+            periodo.querySelectorAll('p').forEach(p => p.remove());
+          });
+
+          if (agendamentos[dataSelecionada]) {
+            agendamentos[dataSelecionada].forEach(agendamento => {
+              const [horario, cliente] = agendamento.split(' - ');
+              const periodos = agendaLista.querySelectorAll('.periodo');
+              periodos.forEach(periodo => {
+                const horarioTexto = periodo.querySelector('span').textContent;
+                const [inicio, fim] = horarioTexto.split('-').map(h => parseInt(h.replace('h', '')));
+                const hora = parseInt(horario.split(':')[0]);
+
+                if (hora >= inicio && hora <= fim) {
+                  const novoAgendamento = document.createElement('p');
+                  novoAgendamento.textContent = agendamento;
+                  periodo.appendChild(novoAgendamento);
+                }
+              });
+            });
+          }
+        };
+
+        agendarBtn.addEventListener('click', () => {
+          const cliente = clienteInput.value.trim();
+          const data = dataInput.value;
+
+          if (!cliente || !data || !selectedHorario) {
+            alert('Por favor, preencha todos os campos e selecione um horário.');
+            return;
+          }
+
+          if (!isDataValida(data)) {
+            alert('A data escolhida é inválida. Por favor, escolha uma data futura ou a data de hoje.');
+            return;
+          }
+
+          const horarioSelecionado = selectedHorario.textContent;
+
+          if (agendamentos[data] && agendamentos[data].includes(`${horarioSelecionado} - ${cliente}`)) {
+            alert('Este horário já está ocupado para a data selecionada. Escolha outro horário.');
+            return;
+          }
+
+          if (!agendamentos[data]) {
+            agendamentos[data] = [];
+          }
+          agendamentos[data].push(`${horarioSelecionado} - ${cliente}`);
+
+          atualizarAgenda(data);
+
+          clienteInput.value = '';
+          selectedHorario.classList.remove('selected');
+          selectedHorario = null;
+          dataInput.value = '';
+          alert('Agendamento realizado com sucesso!');
+        });
+
+        dataAgendaInput.addEventListener('change', () => {
+          const dataSelecionada = dataAgendaInput.value;
+          atualizarAgenda(dataSelecionada);
+        });
+      });
+    </script>
+  </body>
+</html>

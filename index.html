@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>RickZone</title>
+    <link rel="stylesheet" href="styles/index.css" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <div class="container py-base">
+        <nav class="flex itemscenter gap-1.5">
+          <a href="#">
+            <img src="assets/images/logowhite.png" alt="" />
+          </a>
+          <a href="#features" class="desktop-only">Funcionalidades</a>
+          <a href="#pricing" class="desktop-only">Planos e preços</a>
+
+          <a href="#download" class="btn btn-sm">Baixar app</a>
+        </nav>
+      </div>
+    </header>
+
+    <section id="hero">
+      <div class="container py-xl grid even-columns itemscenter info">
+        <div class="info-banner">
+          <h1>RICK <span>Zone</span></h1>
+          <p>
+            Seu veículo sempre limpo e impecável. Profissionalismo e qualidade
+            ao seu alcance.
+          </p>
+        </div>
+        <div class="img">
+          <img src="assets/images/porshevermelha 1.png" alt="" />
+        </div>
+      </div>
+
+      <div class="buttons flex gap-1 itemscenter">
+        <a href="#" aria-label="Ver planos" class="btn btn-md"></a>
+        <a href="agendamentos.html" class="btn btn-md">Agendar agora</a>
+      </div>
+    </section>
+
+    <section id="smartphones-img">
+      <div class="container">
+        <img src="assets/images/telasporsheatt.png" alt="" />
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container even-columns py-xl itemscenter">
+        <div>
+          <header>
+            <strong>Conheça o app</strong>
+            <h2>O aplicativo perfeito para agendar sua lavagem</h2>
+          </header>
+          <p>
+            Manter seu carro limpo e bem cuidado nunca foi tão simples. Com o nosso sistema de Agendamento de Lavagem, você pode agendar serviços automotivos de forma rápida e prática, tudo na palma da sua mão.
+          </p>
+        </div>
+        <div>
+          <img
+            class="desktop-only"
+            src="assets/images/telasporsheatt.png"
+            alt=""
+          />
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing">
+      <div class="container py-xl">
+        <header>
+          <strong>Planos e preços</strong>
+          <h2>Assine e tenha acesso ilimitado a todos tipos de lavagem</h2>
+        </header>
+
+        <div class="cards even-columns itemscenter">
+          <div class="card px-lg py-lg">
+            <h3>Básico</h3>
+            <p>Deixe seu carro brilhando com nossa lavagem especial</p>
+            <zin-pricing>R$89,90</zin-pricing>
+            <a
+              href="#download"
+              class="btn btn-md"
+              aria-label="Baixar agora"
+            ></a>
+            <div class="separator"></div>
+            <ul role="list" class="grid gap-1">
+              <li>Lavagem externa</li>
+              <li>Higienização Interna</li>
+              <li>Aplicação de gel nos pneus</li>
+            </ul>
+            <small>Máximo de 1 lavagem ao mês.</small>
+          </div>
+
+          <div class="premium">
+            <div class="card px-lg">
+              <span>1 mês grátis</span>
+              <h3>Premium</h3>
+              <p>Ideal para quem quer um tratamento diferenciado</p>
+              <zin-pricing>R$ 229,90 <small>/mês</small></zin-pricing>
+              <a href="#download" class="btn btn-md">Experimente de graça</a>
+              <div class="separator"></div>
+              <ul role="list" class="grid gap-1">
+                <li>Plano Básico</li>
+                <li>Plano Intermediário</li>
+                <li>Polimento dos faróis</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="card py-lg px-lg">
+            <h3>Intermediário</h3>
+            <p>Para aquelas famílias que adoram se reunir pra cantar</p>
+            <zin-pricing>R$ 119,90 <small>/mês</small></zin-pricing>
+            <a href="#" class="btn btn-md" aria-label="Assinar agora"></a>
+            <div class="separator"></div>
+            <ul role="list" class="grid gap-1">
+              <li>Plano básico</li>
+              <li>Vitrificação dos vidros</li>
+              <li>Hidratação de bancos</li>
+            </ul>
+
+            <small>Máximo de 2 lavagens ao mês.</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="download">
+      <div class="container py-xl">
+        <div class="card px-lg even-columns itemscenter">
+          <div>
+            <header>
+              <strong>download</strong>
+              <h2>Bora agendar?</h2>
+            </header>
+            <p>
+              Está cansado de perder tempo em filas ou de se preocupar em
+              lembrar de agendar a lavagem do seu carro? Conheça o nosso App de
+              Agendamento de Lavagem, desenvolvido para trazer conveniência,
+              rapidez e praticidade ao seu dia a dia.
+            </p>
+
+            <div class="buttons flex gap-1">
+              <a href="#"
+                ><img src="assets/icons/appstore.svg" alt="baixar da playstore"
+              /></a>
+              <a href="#"
+                ><img src="assets/icons/android.svg" alt="baixar na applestore"
+              /></a>
+            </div>
+          </div>
+          <img src="assets/images/porshevermelha 1.png" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container py-xl grid">
+        <section class="grid top">
+          <img src="assets/images/logowhite.png" alt="logo zingen" />
+
+          <nav class="even-columns">
+            <ul role="list" class="grid gap-1.5">
+              <li class="title">Produto</li>
+              <li>
+                <a href="#features">Funcionalidades</a>
+              </li>
+              <li>
+                <a href="#pricing">Planos e preços</a>
+              </li>
+              <li>
+                <a href="#download">Download</a>
+              </li>
+            </ul>
+
+            <ul role="list" class="grid gap-1.5">
+              <li class="title">Empresa</li>
+              <li>
+                <a href="#">Sobre nós</a>
+              </li>
+              <li>
+                <a href="#">Trabalhe conosco</a>
+              </li>
+              <li>
+                <a href="#">Blog</a>
+              </li>
+            </ul>
+
+            <ul role="list" class="grid gap-1.5">
+              <li class="title">Legal</li>
+              <li>
+                <a href="#">Termos de uso</a>
+              </li>
+              <li>
+                <a href="#">Políticas de privacidade</a>
+              </li>
+            </ul>
+          </nav>
+        </section>
+        <section class="bottom flex gap-1.5">
+          <div class="flex gap-1.5">
+            <a href="#" class="social" aria-label="tiktok"></a>
+            <a href="#" class="social" aria-label="instagram"></a>
+            <a href="#" class="social" aria-label="twitter"></a>
+            <a href="#" class="social" aria-label="discord"></a>
+          </div>
+          <span class="copy">©2024 RickZone, Inc.</span>
+        </section>
+      </div>
+    </footer>
+  </body>
+</html>
